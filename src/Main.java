@@ -1,21 +1,14 @@
 public class Main {
     public static void main(String[] args) {
-        float currentBalance;       //начальный баланс, руб
-        float topUpCashAmount;      //сумма пополнения, руб
+        float currentBalance = 100.00F;         //начальный баланс, руб
+        float topUpCashAmount = 1100.00F;       //сумма пополнения клиентом, руб
 
-        currentBalance = 100.00F;  //тестовые данные. Можно менять для запуск программы
-        topUpCashAmount = 1100.00F; //тестовые данные. Можно менять для запуск программы
+        float minTopUp = 1000F;                 //минимальная сумма пополнения, с какой начисляется бонус, руб
+        float rangeBonus = 100F;                //диапазон пополнения, в пределах которого бонус не меняется, руб
+        long topUpBonus = 1;                    //количество бонусов за 1 диапазон пополнения, руб
+        long finalBonus = 0;                    //итоговое количество начисленных бонусов клиенту, руб
 
-        float minTopUp;             //минимальная сумма пополнения, с какой начисляется бонус, руб
-        float rangeBonus;           //единица пополнения для расчета бонуса, руб
-        float topUpBonus;           //количество бонусов за единицу пополнения, руб
-        float finalBonus;           //количество начисленных
-        minTopUp = 1000F;           //константы
-        rangeBonus = 100F;          //константы
-        topUpBonus = 1F;            //константы
-        finalBonus = 0F;            //инициализация
-
-        if (topUpCashAmount>minTopUp) finalBonus = (long)(topUpCashAmount/rangeBonus)*topUpBonus;
+        if (topUpCashAmount > minTopUp) finalBonus = (long) (topUpCashAmount / rangeBonus) * topUpBonus;
         currentBalance = currentBalance + topUpCashAmount + finalBonus;
         System.out.println(currentBalance);
         System.out.println(finalBonus);
